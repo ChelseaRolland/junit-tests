@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Student {
 
@@ -40,7 +41,11 @@ public class Student {
     }
 
     public void deleteGrade(int grade) {
-        this.grades.remove(grade);
+        for (int grades : getGrades()) {
+            if (grades == grade) {
+                getGrades().remove(getGrades().indexOf(grade));
+            }
+        }
     }
 
     public void updateGrade(int grade) {
@@ -48,6 +53,13 @@ public class Student {
             if (grades == grade) {
                 getGrades().set(getGrades().indexOf(grade), grade);
             }
+        }
+    }
+
+    public void sortingGrades(ArrayList<Integer> grades) {
+        Collections.sort(grades);
+        for (int grade : grades) {
+            System.out.println(grade);
         }
     }
 
